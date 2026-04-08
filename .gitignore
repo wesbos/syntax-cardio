@@ -1,0 +1,7 @@
+node_modules
+.env
+.DS_Store
+.idea
+ideas.md
+cardio.test.ts
+cardio.ts1
