@@ -81,21 +81,35 @@ describe('medium — sort titles without articles', () => {
       'Goodfellas',
       'An Education',
       'The Social Network',
+      'An Elephant Sitting Still',
+      'A Pigeon Sat on a Branch Reflecting on Existence',
+      'The Angels Share',
     ];
+    const inputBeforeSort = [...input]
     expect(sortTitlesIgnoringArticles([...input])).toEqual([
+      'The Angels Share',
       'A Beautiful Mind',
       'An Education',
+      'An Elephant Sitting Still',
       'Goodfellas',
       'The Matrix',
+      'A Pigeon Sat on a Branch Reflecting on Existence',
       'The Social Network',
     ]);
-    expect(input).toEqual([
-      'The Matrix',
-      'A Beautiful Mind',
-      'Goodfellas',
-      'An Education',
-      'The Social Network',
+    expect(input).toEqual(inputBeforeSort);
+  });
+
+  it('sorts as if only the prefix articles are stripped', () => {
+    const input = [
+      'The the A',
+      'The B',
+    ];
+    const inputBeforeSort = [...input]
+    expect(sortTitlesIgnoringArticles([...input])).toEqual([
+      'The B',
+      'The the A',
     ]);
+    expect(input).toEqual(inputBeforeSort);
   });
 });
 
@@ -180,3 +194,7 @@ describe('hard — group states by total population', () => {
     expect(input).toEqual(cities);
   });
 });
+
+// order population
+// group by state
+// order by state
